@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Activate — SHADOW</title>
+<meta name="description" content="Activate your Shadow Journal lifetime license."/>
+<link rel="icon" href="favicon.ico" sizes="any"/>
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png"/>
+<meta name="theme-color" content="#0A0E1F"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg0:#0A0E1F;--bg1:#0F1428;--bg2:#161B3A;--bg3:#1C2247;
+  --blue:#8B9EFF;--blue2:#A5B4FC;--pink:#F9A8D4;--green:#6EE7B7;--red:#FB7185;
+  --text1:#F5F6FF;--text2:rgba(245,246,255,0.58);--text3:rgba(245,246,255,0.32);
+  --border:rgba(255,255,255,0.14);--border2:rgba(255,255,255,0.07);
+  --card-bg:rgba(255,255,255,0.055);--radius:20px;
+  --font-d:'Outfit',sans-serif;--font-m:'JetBrains Mono',monospace;--font-b:'Inter',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  min-height:100vh;font-family:var(--font-b);color:var(--text1);-webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 8%,rgba(139,158,255,0.20) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 45% at 88% 12%,rgba(249,168,212,0.12) 0%,transparent 55%),
+    radial-gradient(ellipse 65% 55% at 85% 90%,rgba(110,231,183,0.10) 0%,transparent 55%),
+    linear-gradient(160deg,#0A0E1F 0%,#0D1226 45%,#0A0E1F 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;
+}
+a{color:inherit;text-decoration:none}
+.brand{position:fixed;top:28px;left:28px;display:flex;align-items:center;gap:9px;font-family:var(--font-d);font-weight:800;font-size:15px;letter-spacing:3px}
+.brand-mark{width:8px;height:8px;background:var(--blue);border-radius:2px;box-shadow:0 0 12px rgba(139,158,255,0.4)}
+
+.card{
+  width:100%;max-width:420px;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);
+  padding:36px 32px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+.eyebrow{font-family:var(--font-m);font-size:10.5px;letter-spacing:2.5px;color:var(--blue2);margin-bottom:14px;text-align:center}
+h1{font-family:var(--font-d);font-weight:800;font-size:26px;text-align:center;margin-bottom:8px;letter-spacing:-.3px}
+.sub{font-size:13.5px;color:var(--text2);text-align:center;margin-bottom:28px;line-height:1.6}
+
+.field-label{font-family:var(--font-m);font-size:10.5px;letter-spacing:1.5px;color:var(--text3);margin-bottom:8px;display:block}
+input#key-input{
+  width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:12px;color:var(--text1);
+  padding:15px 16px;font-family:var(--font-m);font-size:15px;letter-spacing:2px;text-align:center;text-transform:uppercase;
+  outline:none;transition:border-color .15s,box-shadow .15s;
+}
+input#key-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(139,158,255,0.15)}
+input#key-input::placeholder{color:var(--text3);letter-spacing:2px}
+
+.btn-primary{
+  display:block;width:100%;text-align:center;margin-top:16px;
+  font-family:var(--font-d);font-weight:700;font-size:13.5px;letter-spacing:1px;color:#151832;
+  background:linear-gradient(135deg,var(--blue),var(--pink),var(--green));
+  padding:15px;border-radius:12px;border:1px solid rgba(255,255,255,.3);cursor:pointer;
+  box-shadow:0 8px 24px rgba(139,158,255,0.3);transition:transform .15s,box-shadow .15s;
+}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(139,158,255,0.4)}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+#msg{margin-top:16px;font-family:var(--font-m);font-size:12px;text-align:center;min-height:18px;line-height:1.6}
+#msg.error{color:var(--red)}
+#msg.success{color:var(--green)}
+
+.divider{display:flex;align-items:center;gap:12px;margin:28px 0 20px;color:var(--text3);font-family:var(--font-m);font-size:10px;letter-spacing:1px}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border2)}
+
+.wa-btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+  font-family:var(--font-d);font-weight:600;font-size:13.5px;color:var(--text1);
+  background:rgba(110,231,183,0.08);border:1px solid rgba(110,231,183,0.3);border-radius:12px;
+  padding:14px;transition:background .15s,border-color .15s;
+}
+.wa-btn:hover{background:rgba(110,231,183,0.14);border-color:rgba(110,231,183,0.5)}
+.wa-btn svg{width:18px;height:18px;fill:var(--green);flex-shrink:0}
+
+.back-link{display:block;text-align:center;margin-top:26px;font-family:var(--font-m);font-size:11px;color:var(--text3)}
+.back-link:hover{color:var(--text2)}
+</style>
+</head>
+<body>
+
+<a href="shadow-journal-landing.html" class="brand"><span class="brand-mark"></span>SHADOW</a>
+
+<div class="card">
+  <div class="eyebrow">ACTIVATE</div>
+  <h1>Enter your license key</h1>
+  <p class="sub">Unlock your lifetime Shadow Journal license. Your key was sent to you after purchase.</p>
+
+  <label class="field-label" for="key-input">LICENSE KEY</label>
+  <input id="key-input" type="text" placeholder="SHADOW-XXXX-XXXX-XXXX" maxlength="24" autocomplete="off" spellcheck="false"/>
+  <button class="btn-primary" id="activate-btn" onclick="activate()">ACTIVATE LICENSE</button>
+  <div id="msg"></div>
+
+  <div class="divider">DON'T HAVE A KEY YET</div>
+  <a class="wa-btn" id="wa-link" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .102 5.36.1 11.945c0 2.106.55 4.161 1.595 5.976L0 24l6.223-1.632a11.9 11.9 0 0 0 5.815 1.481h.005c6.585 0 11.947-5.361 11.95-11.945 0-3.191-1.24-6.19-3.473-8.455zm-8.475 18.4h-.004a9.85 9.85 0 0 1-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.85 9.85 0 0 1-1.51-5.271c.003-5.45 4.437-9.884 9.889-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.896-9.886 9.896z"/></svg>
+    <span>Get access via WhatsApp</span>
+  </a>
+
+  <a href="shadow-journal-landing.html" class="back-link">← Back to shadow-journal-landing.html</a>
+</div>
+
+<script>
+// ── WhatsApp contact (edit WHATSAPP_NUMBER if it ever changes) ──
+const WHATSAPP_NUMBER = '212651623365'; // https://wa.me format: country code + number, no +/spaces/dashes
+const WHATSAPP_MSG = "Hi! I'd like to get access to Shadow Journal (Lifetime License — $39).";
+document.getElementById('wa-link').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MSG)}`;
+
+// ── License key validation ──
+// Lightweight offline scheme: SHADOW-XXXX-XXXX-CCCC where CCCC is a checksum
+// of the first two segments. This is NOT bulletproof DRM — it's a friction
+// gate appropriate for a $39 indie product, matched by keygen.html which
+// you (the seller) use privately to issue valid keys after payment.
+const LICENSE_SALT = 'SHDWJRNL-2026';
+function checksum(seg1, seg2){
+  const str = seg1 + '-' + seg2 + '-' + LICENSE_SALT;
+  let h = 5381;
+  for (let i = 0; i < str.length; i++){ h = ((h * 33) ^ str.charCodeAt(i)) >>> 0; }
+  let s = (h % 1679616).toString(36).toUpperCase(); // base36, fits 4 chars
+  while (s.length < 4) s = '0' + s;
+  return s.slice(-4);
+}
+function validateKey(rawKey){
+  if (!rawKey) return false;
+  const key = rawKey.trim().toUpperCase();
+  const m = key.match(/^SHADOW-([A-Z0-9]{4})-([A-Z0-9]{4})-([A-Z0-9]{4})$/);
+  if (!m) return false;
+  const [, seg1, seg2, seg3] = m;
+  return checksum(seg1, seg2) === seg3;
+}
+
+const input = document.getElementById('key-input');
+const msg = document.getElementById('msg');
+const btn = document.getElementById('activate-btn');
+
+// auto-format as the user types: SHADOW-XXXX-XXXX-XXXX
+input.addEventListener('input', () => {
+  let v = input.value.toUpperCase().replace(/[^A-Z0-9]/g,'');
+  if (v.startsWith('SHADOW')) v = v.slice(6);
+  const parts = v.match(/.{1,4}/g) || [];
+  input.value = 'SHADOW-' + parts.slice(0,3).join('-');
+});
+
+function activate(){
+  const key = input.value.trim();
+  if (!validateKey(key)){
+    msg.textContent = 'That key doesn\'t look right. Double-check it or contact us on WhatsApp.';
+    msg.className = 'error';
+    return;
+  }
+  msg.textContent = 'License valid — opening Shadow Journal…';
+  msg.className = 'success';
+  btn.disabled = true;
+  try {
+    localStorage.setItem('shadow_licensed', 'true');
+    localStorage.setItem('shadow_license_key', key.toUpperCase());
+  } catch(e) {}
+  setTimeout(() => { window.location.href = 'shadow-journal.html'; }, 700);
+}
+
+input.addEventListener('keydown', (e) => { if (e.key === 'Enter') activate(); });
+
+// If a valid key already exists on this device, offer a fast path in.
+try {
+  if (localStorage.getItem('shadow_licensed') === 'true') {
+    msg.textContent = 'This device is already activated.';
+    msg.className = 'success';
+    btn.textContent = 'OPEN SHADOW JOURNAL';
+    btn.onclick = () => window.location.href = 'shadow-journal.html';
+  }
+} catch(e) {}
+</script>
+</body>
+</html>
