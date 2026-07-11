@@ -386,8 +386,8 @@ footer{border-top:1px solid var(--border2);padding:56px 0 40px}
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-cta">
-      <a href="#pricing" class="btn btn-sm">Sign in</a>
-      <a href="#pricing" class="btn btn-primary btn-sm">Get Lifetime Access</a>
+      <a href="register.html" class="btn btn-sm">Sign in</a>
+      <a href="#" id="wa-nav-cta" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Get Lifetime Access</a>
       <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
@@ -411,7 +411,7 @@ footer{border-top:1px solid var(--border2);padding:56px 0 40px}
       <h1 class="hero-title">Know your edge.<br><span class="grad">Master your execution.</span></h1>
       <p class="hero-sub">Shadow Journal doesn't just record your trades. It explains why you're winning, why you're losing, and whether your edge is real — using statistics and behavioral intelligence, not opinions.</p>
       <div class="hero-ctas">
-        <a href="#pricing" class="btn btn-primary">Buy Lifetime License — $39</a>
+        <a href="#" id="wa-hero-cta" class="btn btn-primary" target="_blank" rel="noopener">Buy Lifetime License — $39</a>
         <a href="#platform" class="btn">See how it works</a>
       </div>
       <div class="hero-note"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> OFFLINE FIRST · YOUR DATA NEVER LEAVES YOUR DEVICE</div>
@@ -614,8 +614,9 @@ footer{border-top:1px solid var(--border2);padding:56px 0 40px}
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Unlimited screenshots</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Lifetime updates, no subscription</li>
         </ul>
-        <a href="#" class="btn btn-primary btn-block">Buy Lifetime License</a>
+        <a href="#" id="wa-pricing-cta" class="btn btn-primary btn-block" target="_blank" rel="noopener">Buy Lifetime License</a>
         <div class="price-note">LAUNCH PRICE · INCREASES TO $49 AFTER EARLY ADOPTER PERIOD</div>
+        <div class="price-note" style="margin-top:10px"><a href="register.html" style="color:var(--blue2);text-decoration:underline">Already purchased? Enter your license key →</a></div>
       </div>
     </div>
   </div>
@@ -703,7 +704,7 @@ footer{border-top:1px solid var(--border2);padding:56px 0 40px}
   <div class="container">
     <h2>Trade with evidence, not emotion.</h2>
     <p>GET THE LIFETIME LICENSE WHILE THE EARLY ADOPTER PRICE LASTS</p>
-    <div class="hero-ctas"><a href="#pricing" class="btn btn-primary">Buy Lifetime License — $39</a></div>
+    <div class="hero-ctas"><a href="#" id="wa-final-cta" class="btn btn-primary" target="_blank" rel="noopener">Buy Lifetime License — $39</a></div>
   </div>
 </section>
 
@@ -881,6 +882,16 @@ footer{border-top:1px solid var(--border2);padding:56px 0 40px}
       }
     }
   });
+</script>
+<script>
+// ── WhatsApp purchase contact ──
+const WHATSAPP_NUMBER = '212651623365'; // https://wa.me format: country code + number, no +/spaces/dashes
+const WHATSAPP_MSG = "Hi! I'd like to buy Shadow Journal — Lifetime License ($39).";
+const WA_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MSG)}`;
+['wa-nav-cta','wa-hero-cta','wa-pricing-cta','wa-final-cta'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.href = WA_LINK;
+});
 </script>
 
 </body>
